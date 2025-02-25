@@ -8,11 +8,21 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f1beb5;
+            margin: 0;
+        }
+        .navbar {
+            background: #ebccff;
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            color: white;
+            font-weight: bold;
+        }
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            height: 90vh;
         }
         .todo-container {
             background: #fff;
@@ -43,23 +53,26 @@
     </style>
 </head>
 <body>
-    <div class="todo-container">
-        <h2>To-Do List</h2>
-        <div class="todo-item">
-            <input type="checkbox" id="task1">
-            <label for="task1">Complete homework</label>
-        </div>
-        <div class="todo-item">
-            <input type="checkbox" id="task2">
-            <label for="task2">Go for a walk</label>
-        </div>
-        <div class="todo-item">
-            <input type="checkbox" id="task3">
-            <label for="task3">Read a book</label>
-        </div>
-        <div class="todo-item">
-            <input type="checkbox" id="task4">
-            <label for="task4">Call a friend</label>
+    <div class="navbar">My To-Do List</div>
+    <div class="container">
+        <div class="todo-container">
+            <h2>To-Do List</h2>
+            <div class="todo-item">
+                <input type="checkbox" id="task1">
+                <label for="task1">Complete homework</label>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" id="task2">
+                <label for="task2">Go for a walk</label>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" id="task3">
+                <label for="task3">Read a book</label>
+            </div>
+            <div class="todo-item">
+                <input type="checkbox" id="task4">
+                <label for="task4">Call a friend</label>
+            </div>
         </div>
     </div>
 </body>
