@@ -9,6 +9,9 @@
             font-family: Arial, sans-serif;
             background-color: #f1beb5;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         .navbar {
             background: #ebccff;
@@ -19,10 +22,10 @@
             font-weight: bold;
         }
         .container {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 90vh;
         }
         .todo-container {
             background: #fff;
@@ -50,6 +53,33 @@
             font-size: 16px;
             color: #555;
         }
+        .footer {
+            background: #ebccff;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            color: white;
+        }
+        .add-task {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .add-task input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .add-task button {
+            margin-left: 5px;
+            padding: 5px 10px;
+            border: none;
+            background-color: #ebccff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -57,28 +87,53 @@
     <div class="container">
         <div class="todo-container">
             <h2>To-Do List</h2>
-            <div class="todo-item">
-                <input type="checkbox" id="task1">
-                <label for="task1">Complete homework</label>
+            <div id="todo-list">
+                <div class="todo-item">
+                    <input type="checkbox" id="task1">
+                    <label for="task1">Complete homework</label>
+                </div>
+                <div class="todo-item">
+                    <input type="checkbox" id="task2">
+                    <label for="task2">Go for a walk</label>
+                </div>
+                <div class="todo-item">
+                    <input type="checkbox" id="task3">
+                    <label for="task3">Read a book</label>
+                </div>
+                <div class="todo-item">
+                    <input type="checkbox" id="task4">
+                    <label for="task4">Call a friend</label>
+                </div>
             </div>
-            <div class="todo-item">
-                <input type="checkbox" id="task2">
-                <label for="task2">Go for a walk</label>
-            </div>
-            <div class="todo-item">
-                <input type="checkbox" id="task3">
-                <label for="task3">Read a book</label>
-            </div>
-            <div class="todo-item">
-                <input type="checkbox" id="task4">
-                <label for="task4">Call a friend</label>
+            <div class="add-task">
+                <input type="text" id="new-task" placeholder="Add new task...">
+                <button onclick="addTask()">Add</button>
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>Author: Keertivallabh Sharma</p>
-        <p><a href="mailto:hege@example.com">keertisharam289@gmail.com</a></p>
-      </footer>
+    <div class="footer">&copy; 2025 My To-Do List.</div>
+    <script>
+        function addTask() {
+            const taskInput = document.getElementById("new-task");
+            const taskText = taskInput.value.trim();
+            if (taskText === "") return;
+            
+            const taskList = document.getElementById("todo-list");
+            const newTask = document.createElement("div");
+            newTask.classList.add("todo-item");
+            
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            
+            const label = document.createElement("label");
+            label.textContent = taskText;
+            
+            newTask.appendChild(checkbox);
+            newTask.appendChild(label);
+            taskList.appendChild(newTask);
+            
+            taskInput.value = "";
+        }
+    </script>
 </body>
 </html>
